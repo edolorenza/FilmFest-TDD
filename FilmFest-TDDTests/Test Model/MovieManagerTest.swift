@@ -12,6 +12,11 @@ class MovieManagerTest: XCTestCase {
 
     var sut: MovieManager!
     
+    let scifiMovie = Movie(title: "Sci-Fi")
+    let actionMovie = Movie(title: "Action/Adventure")
+    let artHouseMovie = Movie(title: "Arthouse Drama")
+    
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         sut = MovieManager()
@@ -33,19 +38,41 @@ class MovieManagerTest: XCTestCase {
     
     //MARK: - Add & Query
     func test_Init_MoviesToSee_ReturnOne(){
-        let testMovie = Movie(title: "Iron Man 1")
-        sut.addMovie(movie: testMovie)
+        sut.addMovie(movie: scifiMovie)
         
         XCTAssertEqual(sut.moviesToSeeCount, 1)
     }
     
     func testQuery_ReturnsMovieAtIndex(){
-        let testMovie = Movie(title: "Oblivion")
-        sut.addMovie(movie: testMovie)
-        
+        sut.addMovie(movie: artHouseMovie)
+
         let movieQueried = sut.MovieAtIndex(index: 0)
-        XCTAssertEqual(testMovie.title, movieQueried.title)
+        XCTAssertEqual(artHouseMovie.title, movieQueried.title)
         
     }
 
+    //MARK: - Checking movie
+    func testCheckOffMovie_UpdatesMovieManagerCounts() {
+        sut.addMovie(movie: actionMovie)
+        sut.checkOffMovieAtIndex(index: 0)
+        
+        XCTAssertEqual(sut.moviesToSeeCount, 0)
+        XCTAssertEqual(sut.moviesSeenCount, 1)
+    }
+    
+    func testCheckOffMovie_RemoveMovieFromArray() {
+        sut.addMovie(movie: scifiMovie)
+        sut.addMovie(movie: artHouseMovie)
+        sut.checkOffMovieAtIndex(index: 0)
+        
+        XCTAssertEqual(sut.MovieAtIndex(index: 0).title, artHouseMovie.title)
+    }
+    
+    func testCheckOffMovie_ReturnsMovieAtIndex() {
+        sut.addMovie(movie: scifiMovie)
+        sut.checkOffMovieAtIndex(index: 0)
+        
+        let movieQueried = sut.checkedOffMovieAtIndex(index: 0)
+        XCTAssertEqual(scifiMovie.title, movieQueried.title)
+    }
 }
