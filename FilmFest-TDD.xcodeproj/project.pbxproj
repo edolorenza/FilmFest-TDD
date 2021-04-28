@@ -101,14 +101,14 @@
 		6BF025802639232A002EAE3F /* FilmFest-TDD */ = {
 			isa = PBXGroup;
 			children = (
+				6BF025C826392A75002EAE3F /* Controller */,
+				6BF025C726392A71002EAE3F /* Model */,
 				6BF025812639232A002EAE3F /* AppDelegate.swift */,
 				6BF025832639232A002EAE3F /* SceneDelegate.swift */,
-				6BF025852639232A002EAE3F /* ViewController.swift */,
 				6BF025872639232A002EAE3F /* Main.storyboard */,
 				6BF0258A2639232B002EAE3F /* Assets.xcassets */,
 				6BF0258C2639232B002EAE3F /* LaunchScreen.storyboard */,
 				6BF0258F2639232B002EAE3F /* Info.plist */,
-				6BF025BC26392570002EAE3F /* Movie.swift */,
 			);
 			path = "FilmFest-TDD";
 			sourceTree = "<group>";
@@ -116,8 +116,9 @@
 		6BF025972639232B002EAE3F /* FilmFest-TDDTests */ = {
 			isa = PBXGroup;
 			children = (
+				6BF025CA26392A9E002EAE3F /* Test Controller */,
+				6BF025C926392A88002EAE3F /* Test Model */,
 				6BF0259A2639232B002EAE3F /* Info.plist */,
-				6BF025B72639249B002EAE3F /* MovieStructTest.swift */,
 			);
 			path = "FilmFest-TDDTests";
 			sourceTree = "<group>";
@@ -129,6 +130,37 @@
 				6BF025A52639232B002EAE3F /* Info.plist */,
 			);
 			path = "FilmFest-TDDUITests";
+			sourceTree = "<group>";
+		};
+		6BF025C726392A71002EAE3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6BF025BC26392570002EAE3F /* Movie.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6BF025C826392A75002EAE3F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6BF025852639232A002EAE3F /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6BF025C926392A88002EAE3F /* Test Model */ = {
+			isa = PBXGroup;
+			children = (
+				6BF025B72639249B002EAE3F /* MovieStructTest.swift */,
+			);
+			path = "Test Model";
+			sourceTree = "<group>";
+		};
+		6BF025CA26392A9E002EAE3F /* Test Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Test Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
