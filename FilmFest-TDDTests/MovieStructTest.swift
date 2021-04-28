@@ -1,5 +1,5 @@
 //
-//  FilmFest_TDDTests.swift
+//  MovieStructTest.swift
 //  FilmFest-TDDTests
 //
 //  Created by Edo Lorenza on 28/04/21.
@@ -8,7 +8,8 @@
 import XCTest
 @testable import FilmFest_TDD
 
-class FilmFest_TDDTests: XCTestCase {
+
+class MovieStructTest: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -28,6 +29,12 @@ class FilmFest_TDDTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testInit_MovieTitle() {
+        let testMovie = Movie(title: "Avenger Endgame")
+        XCTAssertNotNil(testMovie)
+        XCTAssertEqual(testMovie.title, "Avenger Endgame")
     }
 
 }

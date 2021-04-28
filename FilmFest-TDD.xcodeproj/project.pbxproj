@@ -13,8 +13,9 @@
 		6BF025892639232A002EAE3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BF025872639232A002EAE3F /* Main.storyboard */; };
 		6BF0258B2639232B002EAE3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BF0258A2639232B002EAE3F /* Assets.xcassets */; };
 		6BF0258E2639232B002EAE3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BF0258C2639232B002EAE3F /* LaunchScreen.storyboard */; };
-		6BF025992639232B002EAE3F /* FilmFest_TDDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF025982639232B002EAE3F /* FilmFest_TDDTests.swift */; };
 		6BF025A42639232B002EAE3F /* FilmFest_TDDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF025A32639232B002EAE3F /* FilmFest_TDDUITests.swift */; };
+		6BF025B82639249B002EAE3F /* MovieStructTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF025B72639249B002EAE3F /* MovieStructTest.swift */; };
+		6BF025BD26392570002EAE3F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF025BC26392570002EAE3F /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,11 +45,12 @@
 		6BF0258D2639232B002EAE3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6BF0258F2639232B002EAE3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BF025942639232B002EAE3F /* FilmFest-TDDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FilmFest-TDDTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BF025982639232B002EAE3F /* FilmFest_TDDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmFest_TDDTests.swift; sourceTree = "<group>"; };
 		6BF0259A2639232B002EAE3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BF0259F2639232B002EAE3F /* FilmFest-TDDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FilmFest-TDDUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BF025A32639232B002EAE3F /* FilmFest_TDDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmFest_TDDUITests.swift; sourceTree = "<group>"; };
 		6BF025A52639232B002EAE3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BF025B72639249B002EAE3F /* MovieStructTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieStructTest.swift; sourceTree = "<group>"; };
+		6BF025BC26392570002EAE3F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				6BF0258A2639232B002EAE3F /* Assets.xcassets */,
 				6BF0258C2639232B002EAE3F /* LaunchScreen.storyboard */,
 				6BF0258F2639232B002EAE3F /* Info.plist */,
+				6BF025BC26392570002EAE3F /* Movie.swift */,
 			);
 			path = "FilmFest-TDD";
 			sourceTree = "<group>";
@@ -113,8 +116,8 @@
 		6BF025972639232B002EAE3F /* FilmFest-TDDTests */ = {
 			isa = PBXGroup;
 			children = (
-				6BF025982639232B002EAE3F /* FilmFest_TDDTests.swift */,
 				6BF0259A2639232B002EAE3F /* Info.plist */,
+				6BF025B72639249B002EAE3F /* MovieStructTest.swift */,
 			);
 			path = "FilmFest-TDDTests";
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 					};
 					6BF025932639232B002EAE3F = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 						TestTargetID = 6BF0257D2639232A002EAE3F;
 					};
 					6BF0259E2639232B002EAE3F = {
@@ -260,6 +264,7 @@
 			files = (
 				6BF025862639232A002EAE3F /* ViewController.swift in Sources */,
 				6BF025822639232A002EAE3F /* AppDelegate.swift in Sources */,
+				6BF025BD26392570002EAE3F /* Movie.swift in Sources */,
 				6BF025842639232A002EAE3F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BF025992639232B002EAE3F /* FilmFest_TDDTests.swift in Sources */,
+				6BF025B82639249B002EAE3F /* MovieStructTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +479,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6SVV7LMGJ;
 				INFOPLIST_FILE = "FilmFest-TDDTests/Info.plist";
@@ -485,6 +491,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "edolorenza.codes.FilmFest-TDDTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FilmFest-TDD.app/FilmFest-TDD";
@@ -496,6 +503,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6SVV7LMGJ;
 				INFOPLIST_FILE = "FilmFest-TDDTests/Info.plist";
