@@ -49,10 +49,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dataService" destination="hBq-ZO-8dw" id="kLo-qt-UoE"/>
                         <outlet property="libraryTableView" destination="1vX-4l-cQm" id="f3d-lG-FTH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="hBq-ZO-8dw" userLabel="Movie Library Data Service" customClass="MovieLibraryDataService" customModule="FilmFest_TDD" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="121.73913043478262" y="118.52678571428571"/>
         </scene>
