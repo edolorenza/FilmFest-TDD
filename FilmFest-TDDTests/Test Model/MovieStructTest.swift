@@ -19,6 +19,7 @@ class MovieStructTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
+    //MARK: - Initialization
     func testInit_MovieTitle() {
         let testMovie = Movie(title: "Avenger Endgame")
         XCTAssertNotNil(testMovie)
@@ -31,6 +32,7 @@ class MovieStructTest: XCTestCase {
         XCTAssertEqual(testMovie.releaseDate, "2014")
     }
     
+    //MARK: - Equatable
     func testEquatable_ReturnsTrue() {
         let movie1 = Movie(title: "Action")
         let movie2 = Movie(title: "Action")
