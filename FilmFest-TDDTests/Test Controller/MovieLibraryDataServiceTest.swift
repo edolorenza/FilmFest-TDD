@@ -12,6 +12,7 @@ class MovieLibraryDataServiceTest: XCTestCase {
     
     var sut: MovieLibraryDataService!
     var libraryTableView: UITableView!
+    var libraryVC: LibraryViewController!
     
     let onePiece = Movie(title: "One Piece")
     let thriller = Movie(title: "Thriller")
@@ -21,7 +22,11 @@ class MovieLibraryDataServiceTest: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         sut = MovieLibraryDataService()
         sut.movieManager = MovieManager()
-        libraryTableView = UITableView()
+        
+        libraryVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LibraryViewControllerID") as! LibraryViewController
+        _ = libraryVC.view
+        
+        libraryTableView = libraryVC.libraryTableView
         libraryTableView.dataSource = sut
         libraryTableView.delegate = sut
     }
@@ -62,4 +67,37 @@ class MovieLibraryDataServiceTest: XCTestCase {
         libraryTableView.reloadData()
         XCTAssertEqual(libraryTableView.numberOfRows(inSection: 1), 2)
     }
+    
+    //MARK: -Cell
+    func testCell_RowAtIndex_ReturnsMovieCell() {
+        sut.movieManager?.addMovie(movie: darkComedy)
+        libraryTableView.reloadData()
+        
+        let cellQueried = libraryTableView.cellForRow(at: IndexPath(row: 0, section: 0))
+        XCTAssertTrue(cellQueried is MovieCell)
+    }
+    
+    func testCell_ShouldDequeueCell() {
+        let mock = TableViewMock()
+        mock.dataSource = sut
+        mock.register(MovieCell.self, forCellReuseIdentifier: "movieCellID")
+        sut.movieManager?.addMovie(movie: thriller)
+        mock.reloadData()
+        _ = mock.cellForRow(at: IndexPath(row: 0, section: 0))
+        
+        XCTAssertTrue(mock.cellDequedProperly)
+    }
+}
+
+extension MovieLibraryDataServiceTest {
+    class TableViewMock: UITableView {
+        var cellDequedProperly = false
+        
+        override func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
+            cellDequedProperly = true
+            
+            return super.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        }
+    }
+    
 }
