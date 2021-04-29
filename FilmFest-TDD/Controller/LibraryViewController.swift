@@ -12,6 +12,8 @@ class LibraryViewController: UIViewController {
     @IBOutlet weak var libraryTableView: UITableView!
     @IBOutlet var dataService: MovieLibraryDataService!
     
+    var movieManager = MovieManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

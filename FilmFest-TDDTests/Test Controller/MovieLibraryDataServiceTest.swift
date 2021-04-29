@@ -86,7 +86,7 @@ class MovieLibraryDataServiceTest: XCTestCase {
         tableViewMock.reloadData()
         _ = tableViewMock.cellForRow(at: IndexPath(row: 0, section: 0))
         
-        XCTAssertTrue(tableViewMock.cellDequedProperly)
+        XCTAssertTrue(tableViewMock.cellDequeuedProperly)
     }
     
     func testCell_SectionOneConfig_ShouldSetCellData() {
