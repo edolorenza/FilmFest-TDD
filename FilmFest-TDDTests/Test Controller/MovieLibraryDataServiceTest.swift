@@ -13,6 +13,8 @@ class MovieLibraryDataServiceTest: XCTestCase {
     var sut: MovieLibraryDataService!
     var libraryTableView: UITableView!
     var libraryVC: LibraryViewController!
+    var tableViewMock: TableViewMock!
+    
     
     let onePiece = Movie(title: "One Piece")
     let thriller = Movie(title: "Thriller")
@@ -26,6 +28,7 @@ class MovieLibraryDataServiceTest: XCTestCase {
         libraryVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LibraryViewControllerID") as! LibraryViewController
         _ = libraryVC.view
         
+        tableViewMock = TableViewMock.initMock(dataSource: sut)
         libraryTableView = libraryVC.libraryTableView
         libraryTableView.dataSource = sut
         libraryTableView.delegate = sut
@@ -78,26 +81,34 @@ class MovieLibraryDataServiceTest: XCTestCase {
     }
     
     func testCell_ShouldDequeueCell() {
-        let mock = TableViewMock()
-        mock.dataSource = sut
-        mock.register(MovieCell.self, forCellReuseIdentifier: "movieCellID")
+      
         sut.movieManager?.addMovie(movie: thriller)
-        mock.reloadData()
-        _ = mock.cellForRow(at: IndexPath(row: 0, section: 0))
+        tableViewMock.reloadData()
+        _ = tableViewMock.cellForRow(at: IndexPath(row: 0, section: 0))
         
-        XCTAssertTrue(mock.cellDequedProperly)
+        XCTAssertTrue(tableViewMock.cellDequedProperly)
     }
-}
+    
+    func testCell_SectionOneConfig_ShouldSetCellData() {
 
-extension MovieLibraryDataServiceTest {
-    class TableViewMock: UITableView {
-        var cellDequedProperly = false
         
-        override func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
-            cellDequedProperly = true
-            
-            return super.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        }
+        sut.movieManager?.addMovie(movie: onePiece)
+        tableViewMock.reloadData()
+        
+        let cell = tableViewMock.cellForRow(at: IndexPath(row: 0, section: 0)) as! MovieCellMock
+        XCTAssertEqual(cell.movieData, onePiece)
+    }
+    
+    func testCell_SectionTwoConfig_ShouldSetCellData() {
+        sut.movieManager?.addMovie(movie: darkComedy)
+        sut.movieManager?.addMovie(movie: thriller)
+        sut.movieManager?.checkOffMovieAtIndex(index: 0)
+        tableViewMock.reloadData()
+        
+        let cell = tableViewMock.cellForRow(at: IndexPath(row: 0, section: 1)) as! MovieCellMock
+        
+        XCTAssertEqual(cell.movieData, darkComedy)
     }
     
 }
+

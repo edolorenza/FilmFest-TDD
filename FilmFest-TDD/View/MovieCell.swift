@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MovieCell: UITableViewCell {
+class MovieCell: UITableViewCell{
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,5 +19,8 @@ class MovieCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    func configMovieCell(movie: Movie) {
+        
+    }
 }
