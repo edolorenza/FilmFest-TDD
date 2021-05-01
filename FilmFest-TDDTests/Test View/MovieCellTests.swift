@@ -30,9 +30,10 @@ class MovieCellTests: XCTestCase {
     func testCell_Config_ShouldSetLabelsToMovieData() {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCellID", for: IndexPath(row: 0, section: 0)) as! MovieCell
         cell.configMovieCell(movie: Movie(title: "Indie Comedy", releaseDate: "2018"))
+        
+        XCTAssertEqual(cell.textLabel?.text, "Indie Comedy")
+        XCTAssertEqual(cell.detailTextLabel?.text, "2018")
       
     }
-
- 
 
 }
